@@ -1,0 +1,70 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Choose a time slot
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/your-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Choose a time slot</h1>
+
+      <form class="form" action="/confirm-your-booking" method="post">
+
+        {{ govukRadios({
+          idPrefix: "time-slot",
+          name: "time_slot",
+          fieldset: {
+            legend: {
+              text: "Select a suitable date and time",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: 'Morning slots are between 9am and 12 midday and afternoon slots are between 1pm and 5pm.'
+          },
+          items: [
+            {
+              value: '2021-02-08-am',
+              text: 'Monday 8 February 2021 – morning'
+            },
+            {
+              value: '2021-02-08-pm',
+              text: 'Monday 8 February 2021 – afternoon'
+            },
+            {
+              value: '2021-02-09-am',
+              text: 'Tuesday 9 February 2021 – morning'
+            },
+            {
+              value: '2021-02-09-pm',
+              text: 'Tuesday 9 February 2021 – afternoon'
+            },
+            {
+              value: '2021-02-10-am',
+              text: 'Wednesday 10 February 2021 – morning'
+            },
+            {
+              value: '2021-02-10-pm',
+              text: 'Wednesday 10 February 2021 – afternoon'
+            }
+          ]
+        }) }}
+
+        <p><a href="#">Show later dates</a></p>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

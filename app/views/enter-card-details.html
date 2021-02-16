@@ -1,0 +1,92 @@
+{% extends "layout_unbranded.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  Enter your card details
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/confirm-your-booking">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Enter your card details</h1>
+
+      <form class="form" action="/confirmation" method="post">
+
+        {{ govukInput({
+          label: {
+            text: 'Card number'
+          },
+          id: 'card-number',
+          name: 'card_number',
+          autocomplete: 'cc-number'
+        }) }}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Expiry date",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: false
+          },
+          hint: {
+            text: "For example, 10 / 20"
+          }
+        }) %}
+
+          {{ govukInput({
+            label: {
+              text: 'Month'
+            },
+            classes: "govuk-input--width-2",
+            id: "card-expiry-month",
+            name: "card_expiry_month",
+            autocomplete: "cc-exp-month"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: 'Year'
+            },
+            classes: "govuk-input--width-4",
+            id: "card-expiry-year",
+            name: "card_expiry_year",
+            autocomplete: "cc-exp-year"
+          }) }}
+
+        {% endcall %}
+
+        {{ govukInput({
+          label: {
+            text: 'Name on card'
+          },
+          id: 'card-name',
+          name: 'card_name',
+          autocomplete: 'cc-name'
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Card security code'
+          },
+          hint: {
+            text: 'The last 3 digits on the back of the card'
+          },
+          classes: "govuk-input--width-6",
+          id: 'card-cvc',
+          name: 'card_cvc',
+          autocomplete: 'cc-cvc'
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Complete payment</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

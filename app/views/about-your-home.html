@@ -1,0 +1,90 @@
+{% extends "layout_unbranded.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block pageTitle %}
+  About your home
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/type-of-pest">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">About your home</h1>
+
+      <form class="form" action="/your-details" method="post">
+
+        {{ govukRadios({
+          idPrefix: "home-type",
+          name: "home_type",
+          fieldset: {
+            legend: {
+              text: "What type of home do you live in?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "house",
+              text: "House"
+            },
+            {
+              value: "flat-maisonette",
+              text: "Flat or maisonette"
+            }
+          ]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "How many bedrooms are there in your house?"
+          },
+          classes: "govuk-input--width-4",
+          id: "number-bedrooms",
+          name: "number_bedrooms"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "What floor is your flat on?"
+          },
+          classes: "govuk-input--width-4",
+          id: "floor-number",
+          name: "floor_number"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Where are the pests located?"
+          },
+          id: "pest-location",
+          name: "pest_location"
+        }) }}
+
+        {{ govukFileUpload({
+          id: "evidence-upload",
+          name: "evidence_upload",
+          label: {
+            text: "Upload photo evidence"
+          },
+          hint: {
+            text: "This is optional but can help us to identify the pests and diagnose the problem"
+          }
+        }) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
