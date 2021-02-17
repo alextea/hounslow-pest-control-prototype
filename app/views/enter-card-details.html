@@ -27,38 +27,78 @@
           autocomplete: 'cc-number'
         }) }}
 
-        {% call govukFieldset({
-          legend: {
-            text: "Expiry date",
-            classes: "govuk-fieldset__legend--m",
-            isPageHeading: false
-          },
-          hint: {
-            text: "For example, 10 / 20"
-          }
-        }) %}
+        <ul class="accepted-cards field-empty">
+          <li class="american-express" data-key="american-express" data-credit="true" data-debit="false">
+            <span class="govuk-warning-text__assistive">
+              american-express
+            </span>
+          </li>
+          <li class="visa" data-key="visa" data-credit="true" data-debit="true">
+            <span class="govuk-warning-text__assistive">
+              visa
+            </span>
+          </li>
+          <li class="master-card" data-key="master-card" data-credit="true" data-debit="true">
+            <span class="govuk-warning-text__assistive">
+              master-card
+            </span>
+          </li>
+          <li class="unionpay" data-key="unionpay" data-credit="true" data-debit="false">
+            <span class="govuk-warning-text__assistive">
+              unionpay
+            </span>
+          </li>
+          <li class="jcb" data-key="jcb" data-credit="true" data-debit="false">
+            <span class="govuk-warning-text__assistive">
+              jcb
+            </span>
+          </li>
+          <li class="discover" data-key="discover" data-credit="true" data-debit="false">
+            <span class="govuk-warning-text__assistive">
+              discover
+            </span>
+          </li>
+          <li class="diners-club" data-key="diners-club" data-credit="true" data-debit="false">
+            <span class="govuk-warning-text__assistive">
+              diners-club
+            </span>
+          </li>
+        </ul>
+        <p class="govuk-body-s accepted-cards-hint withdrawal-text">
+            Accepted credit and debit card types
+        </p>
 
-          {{ govukInput({
-            label: {
-              text: 'Month'
-            },
-            classes: "govuk-input--width-2",
-            id: "card-expiry-month",
-            name: "card_expiry_month",
-            autocomplete: "cc-exp-month"
-          }) }}
+        <div class="form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="card-expiry-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Expiry date
+            </legend>
 
-          {{ govukInput({
-            label: {
-              text: 'Year'
-            },
-            classes: "govuk-input--width-4",
-            id: "card-expiry-year",
-            name: "card_expiry_year",
-            autocomplete: "cc-exp-year"
-          }) }}
+            <div id="card-expiry-hint" class="govuk-hint">
+              For example, 10/23
+            </div>
 
-        {% endcall %}
+            <div class="govuk-date-input" id="card-expiry">
+              <div class="govuk-date-input__item govuk-date-input__item--with-separator">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="card-expiry-month">
+                    Month
+                  </label>
+                  <input id="card-expiry-month" name="card_expiry-month" type="text" autocomplete="cc-exp-month" pattern="[0-9]*" inputmode="numeric" class="govuk-input govuk-date-input__input govuk-input--width-3">
+                </div>
+              </div>
+
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="card-expiry-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="card-expiry-year" name="card_expiry-year" type="text" autocomplete="cc-exp-year" pattern="[0-9]*" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
         {{ govukInput({
           label: {
@@ -69,18 +109,35 @@
           autocomplete: 'cc-name'
         }) }}
 
-        {{ govukInput({
-          label: {
-            text: 'Card security code'
-          },
-          hint: {
-            text: 'The last 3 digits on the back of the card'
-          },
-          classes: "govuk-input--width-6",
-          id: 'card-cvc',
-          name: 'card_cvc',
-          autocomplete: 'cc-cvc'
-        }) }}
+        <div class="govuk-form-group cvc govuk-clearfix" data-validation="cvc">
+          <label id="cvc-lbl" for="cvc" class="govuk-label govuk-label--s">
+            <span class="cvc-label" data-label-replace="cvc" data-original-label="Card security code">
+              Card security code
+            </span>
+
+            <span class="govuk-hint govuk-!-margin-bottom-2">
+              <span class="generic-cvc">
+                The last 3 digits on the back of the card
+              </span>
+
+              <span class="amex-cvc hidden">
+                <span class="hidden">
+                  For American Express,
+                </span>
+                <span class="no-js-lowercase">
+                  The last 4 digits after the card number on the front
+                </span>
+              </span>
+            </span>
+          </label>
+
+          <input id="cvc" type="text" inputmode="numeric" pattern="[0-9]*" value="" name="cvc" class="govuk-input govuk-input--width-3 cvc" maxlength="4" autocomplete="cc-csc">
+          <img src="/public/images/security-code.png" class="generic-cvc" alt="The last 3 digits on the back of the card">
+          <span class="either hidden">
+            or
+          </span>
+          <img src="/public/images/amex-security-code.png" class="amex-cvc hidden" alt="The last 4 digits after the card number on the front">
+        </div>
 
         <button class="govuk-button" data-module="govuk-button">Complete payment</button>
 
