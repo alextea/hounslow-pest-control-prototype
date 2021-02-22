@@ -79,18 +79,38 @@ router.get('/confirm-your-booking', function(req, res) {
 
   // 2021-02-08-am
   let timeSlotParts = req.session.data['time_slot'].split('-');
-  let timeSlotDate = new Date(timeSlotParts[0], timeSlotParts[1], timeSlotParts[2])
+  let timeSlotDate = new Date(timeSlotParts[0], timeSlotParts[1]-1, timeSlotParts[2])
   let formattedTimeSlot = new Intl.DateTimeFormat("en-GB", {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   }).format(timeSlotDate)
 
   if (timeSlotParts[3] == "am") {
-    formattedTimeSlot += " 9am to 12 midday"
+    formattedTimeSlot += " between 9am and 12 midday"
   } else {
-    formattedTimeSlot += " 1pm to 5pm"
+    formattedTimeSlot += " between 1pm and 5pm"
   }
 
   res.render('confirm-your-booking', { pest: pest, price: formattedPrice, time_slot: formattedTimeSlot })
+})
+
+router.get('/confirmation', function (req, res) {
+  let timeSlotParts = req.session.data['time_slot'].split('-');
+  let timeSlotDate = new Date(timeSlotParts[0], timeSlotParts[1]-1, timeSlotParts[2])
+  let formattedDate = new Intl.DateTimeFormat("en-GB", {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  }).format(timeSlotDate)
+
+  let formattedTime = ""
+  if (timeSlotParts[3] == "am") {
+    formattedTime = "9am and 12 midday"
+  } else {
+    formattedTime = "1pm and 5pm"
+  }
+
+  res.render('confirmation', {
+    formatted_date: formattedDate,
+    formatted_time: formattedTime
+  })
 })
 
 module.exports = router
