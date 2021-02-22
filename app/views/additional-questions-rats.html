@@ -1,0 +1,50 @@
+{% extends "layout_unbranded.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block pageTitle %}
+  Additional questions
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/type-of-pest">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/about-your-home" method="post">
+
+        {{ govukRadios({
+          idPrefix: "pest-location",
+          name: "pest_location",
+          fieldset: {
+            legend: {
+              text: "Where are the rats located?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "indoors",
+              text: "Indoors"
+            },
+            {
+              value: "garden",
+              text: "Garden or outside"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
