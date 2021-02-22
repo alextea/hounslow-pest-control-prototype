@@ -14,9 +14,11 @@
 
       <h1 class="govuk-heading-xl">Confirm your booking</h1>
 
-      <h2 class="govuk-heading-m">This treatment will cost £130</h2>
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-m">This treatment will cost {{ price }}</h2>
 
-      <p>Price includes external treatment where necessary. Additional visits at £40 each.</p>
+        <p>{{ pest['details'] }}</p>
+      </div>
 
       <dl class="govuk-summary-list govuk-!-margin-top-9">
         <div class="govuk-summary-list__row">
@@ -24,7 +26,7 @@
             Type of pest
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['type_of_pest'] }}
+            {{ pest['title'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -32,6 +34,22 @@
       </dl>
 
       <p><a href="/type-of-pest"> Change <span class="govuk-visually-hidden"> type of pest</span></a></p>
+
+      <dl class="govuk-summary-list govuk-!-margin-top-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Chosen time slot
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ time_slot }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
+
+      <p><a href="/choose-time-slot">Change <span class="govuk-visually-hidden"> time slot</span></a></p>
+
 
       <h2 class="govuk-heading-m govuk-!-margin-top-9">About your home</h2>
 
@@ -41,7 +59,7 @@
             Type of home
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['home_type'] }}
+            {{ data['home_type']  | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -71,7 +89,7 @@
             Location of pests
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['pest_location'] }}
+            {{ data['pest_location']  | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -124,7 +142,7 @@
             How you prefer to be contacted
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['contact_preference'] }}</p>
+            <p>{{ data['contact_preference'] | capitalize }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -132,21 +150,6 @@
       </dl>
 
       <p><a href="/your-details">Change <span class="govuk-visually-hidden"> your details</span></a></p>
-
-      <dl class="govuk-summary-list govuk-!-margin-top-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Chosen time slot
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['time_slot'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-      </dl>
-
-      <p><a href="/choose-time-slot">Change <span class="govuk-visually-hidden"> time slot</span></a></p>
 
       <form action="/enter-card-details" method="post" novalidate class="govuk-!-margin-top-9">
 
