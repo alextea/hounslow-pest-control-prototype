@@ -1,0 +1,70 @@
+[
+  {
+    "pest-type": "rats",
+    "title": "Rats",
+    "location": "garden",
+    "price": 110,
+    "details": "Domestic charge applies for up to 3 visits to the property and applies to single, occupied premises not in multiple occupation. Communal gardens are charged at the commercial rate. Additional visits at £35 each."
+  },
+  {
+    "pest-type": "rats",
+    "title": "Rats",
+    "location": "indoors",
+    "price": 130,
+    "details": "Includes external treatment where necessary. Additional visits at £40 each."
+  },
+  {
+    "pest-type": "mice",
+    "title": "Mice",
+    "price": 130,
+    "details": "Domestic charge applies for up to 3 visits to the property. Any additional visits required will be charged at £40 each."
+  },
+  {
+    "pest-type": "squirrels",
+    "title": "Squirrels",
+    "price": 175,
+    "details": "Domestic charge applies for up to 4 visits to the property. Any additional visits required will be charged at £40 each."
+  },
+  {
+    "pest-type": "fleas",
+    "title": "Fleas",
+    "price": 110,
+    "details": "Domestic charge covers 1 visit to the property to treat a two-bedroom property. For larger properties add £25 per additional bedroom."
+  },
+  {
+    "pest-type": "cockroaches",
+    "title": "Cockroaches",
+    "price": 165,
+    "details": "Domestic charge covers 2 visits to the property. Any additional visits required will be charged at £80 each."
+  },
+  {
+    "pest-type": "bedbugs",
+    "title": "Bedbugs",
+    "price": 200,
+    "details": "Domestic charge covers 2 visits to the property for up to two rooms treated. Additional rooms are charged at £55 each Any additional visits required will be charged at £100 plus £27.50 for each additonal room over 2. A charge of £30 will apply if we arrive and find that the client has failed to prepare rooms correctly resulting in a postponement of the service. This is payable before any further work is booked."
+  },
+  {
+    "pest-type": "pharaoh-ants",
+    "title": "Pharaoh ants",
+    "price": 160,
+    "details": "Domestic charge covers 2 visits to the property. Any additional visits required will be charged at the commercial rate"
+  },
+  {
+    "pest-type": "garden-ants",
+    "title": "Garden ants",
+    "price": 100,
+    "details": "Per treatment. Please note that we do not operate services to control ants in garden or open areas but will treat premises where ants are entering them."
+  },
+  {
+    "pest-type": "wasps",
+    "title": "Wasps",
+    "price": 65,
+    "details": "Charges are for the treatment of a single wasp nest and do not cover removal – which is rarely necessary. Additional nests treated at the same time are charged at £30 each. Removal of nests following treatment, where necessary and accessible, will be charged at our commercial hourly rate in addition to the treatment charge."
+  },
+  {
+    "pest-type": "pigeons",
+    "title": "Pigeons nesting in lofts, etc",
+    "price": 0,
+    "details": ""
+  }
+]
