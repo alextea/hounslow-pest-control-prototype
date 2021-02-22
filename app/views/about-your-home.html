@@ -60,6 +60,7 @@
           name: "floor_number"
         }) }}
 
+        {% if data['type_of_pest'] != "rats" %}
         {{ govukInput({
           label: {
             text: "Where are the pests located?"
@@ -67,6 +68,7 @@
           id: "pest-location",
           name: "pest_location"
         }) }}
+        {% endif %}
 
         {{ govukFileUpload({
           id: "evidence-upload",
