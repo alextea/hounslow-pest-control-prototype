@@ -14,7 +14,6 @@ router.get('/type-of-pest', function (req, res) {
   })
 
   pestTypes.splice(0, 1) // first index is a duplicate
-  console.log(pestTypes)
 
   let additionalOptions = [
     {
@@ -34,7 +33,6 @@ router.get('/type-of-pest', function (req, res) {
 })
 
 router.post('/type-of-pest', function(req, res) {
-  console.log(req.session.data['type_of_pest'])
   if (req.session.data['type_of_pest'] == "rats") {
     // additional questions
     res.redirect('/additional-questions-rats')
@@ -55,8 +53,6 @@ router.get('/confirm-your-booking', function(req, res) {
 
   if (pest['pest-type'] == 'rats') {
     pest = pestData.find(pest => {
-      console.log(req.session.data['type_of_pest'], pest['pest-type'])
-      console.log(req.session.data['pest_location'], pest['location'])
       return (pest['pest-type'] == req.session.data['type_of_pest'] && pest['location'] == req.session.data['pest_location'])
     })
   }
