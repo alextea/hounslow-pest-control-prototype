@@ -44,7 +44,8 @@
 
         {{ govukInput({
           label: {
-            text: "How many bedrooms are there in your house?"
+            text: "How many bedrooms are there in your house?",
+            classes: "govuk-label--m"
           },
           classes: "govuk-input--width-4",
           id: "number-bedrooms",
@@ -53,7 +54,8 @@
 
         {{ govukInput({
           label: {
-            text: "What floor is your flat on?"
+            text: "What floor is your flat on?",
+            classes: "govuk-label--m"
           },
           classes: "govuk-input--width-4",
           id: "floor-number",
@@ -63,7 +65,8 @@
         {% if data['type_of_pest'] != "rats" %}
         {{ govukInput({
           label: {
-            text: "Where are the pests located?"
+            text: "Where are the pests located?",
+            classes: "govuk-label--m"
           },
           id: "pest-location",
           name: "pest_location"
@@ -74,7 +77,8 @@
           id: "evidence-upload",
           name: "evidence_upload",
           label: {
-            text: "Upload photo evidence"
+            text: "Upload photo evidence",
+            classes: "govuk-label--m"
           },
           hint: {
             text: "This is optional but can help us to identify the pests and diagnose the problem"
