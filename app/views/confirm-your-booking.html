@@ -31,6 +31,30 @@
           <dd class="govuk-summary-list__actions">
           </dd>
         </div>
+        {% if data['type_of_pest'] == "rats" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location of rats
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pest_location'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['type_of_pest'] == "fleas" or data['type_of_pest'] == "bedbugs" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number of rooms that need treating
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['number_rooms'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        {% endif %}
       </dl>
 
       <p><a href="/type-of-pest"> Change <span class="govuk-visually-hidden"> type of pest</span></a></p>

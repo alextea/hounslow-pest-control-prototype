@@ -59,14 +59,14 @@ router.get('/confirm-your-booking', function(req, res) {
 
   let finalPrice = pest['price'];
 
-  if (pest['pest-type'] == 'fleas') {
+  if (pest['pest-type'] == 'fleas' && req.session.data['number_rooms'] > 2) {
     let price = pest['price']
-    finalPrice = price + (req.session.data['number_rooms'] * 25)
+    finalPrice = price + ((req.session.data['number_rooms'] - 2) * 25)
   }
 
-  if (pest['pest-type'] == 'bedbugs') {
+  if (pest['pest-type'] == 'bedbugs' && req.session.data['number_rooms'] > 2) {
     let price = pest['price']
-    finalPrice = price + (req.session.data['number_rooms'] * 55)
+    finalPrice = price + ((req.session.data['number_rooms'] - 2) * 55)
   }
 
   let formattedPrice = new Intl.NumberFormat("en-GB", {
