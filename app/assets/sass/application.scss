@@ -116,7 +116,11 @@ a {
   background: $hounslow_pink;
 }
 
-
+// inset text
+.govuk-inset-text {
+  border: none;
+  background-color: $hounslow_green;
+}
 
 // Miscellaneous overrides
 .app-related-items {
