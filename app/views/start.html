@@ -1,7 +1,7 @@
 {% extends "layout_hounslow.html" %}
 
 {% block pageTitle %}
-  Pest control
+  {{ serviceName }}
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
         <li>commercial services: pest control and pest protection services available to businesses within the London Borough of Hounslow.</li>
       </ul>
 
-      <p>Some types pests may need you to prepare in advance. You will be notified of this if necessary. There is a cost to this service, a <a href="#">full price list</a> is available.</p>
+      <p>Some types pests may need you to prepare in advance. You will be notified of this if necessary. There is a cost to this service, a <a href="/price-list">full price list</a> is available.</p>
 
       <a href="/type-of-pest" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
         Start now
@@ -72,7 +72,7 @@
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="#">
+              <a href="/price-list">
                 Pest control price list
               </a>
             </li>
