@@ -18,3 +18,107 @@ $govuk-assets-path: '/govuk/assets/';
 @import "accepted-cards";
 @import "cvc";
 @import "expiry-date-separator";
+
+
+// colours
+$hounslow_purple: #642f6c;
+$hounslow_pink: #d70787;
+$hounslow_orange: #ffa500;
+$hounslow_green: #e5f2eb;
+
+// header
+.hounslow-header {
+  background-color: $hounslow_purple;
+}
+
+// buttons
+$hounslow-button-colour: $hounslow_pink;
+$hounslow-button-hover-colour: govuk-shade($hounslow_pink, 20%);
+$hounslow-button-shadow-colour: govuk-shade($hounslow_pink, 60%);
+$hounslow-button-text-colour: govuk-colour("white");
+$button-shadow-size: $govuk-border-width-form-element;
+
+.govuk-button {
+  color: $hounslow-button-text-colour;
+  background-color: $hounslow-button-colour;
+  box-shadow: 0 $button-shadow-size 0 $hounslow-button-shadow-colour; // s0
+
+  @include govuk-if-ie8 {
+    border-color: $hounslow-button-shadow-colour;
+  }
+
+  // Ensure that any global link styles are overridden
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $hounslow-button-text-colour;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $hounslow-button-hover-colour;
+  }
+}
+
+// links
+$hounslow-link-colour: $hounslow_purple;
+$hounslow-link-visited-colour: $hounslow_purple;
+$hounslow-link-hover-colour: $hounslow_pink;
+$hounslow-link-active-colour: $hounslow_pink;
+
+a {
+  &:link {
+    color: $hounslow-link-colour;
+  }
+
+  &:visited {
+    color: $hounslow-link-visited-colour;
+  }
+
+  &:hover {
+    color: $hounslow-link-hover-colour;
+  }
+
+  &:active {
+    color: $hounslow-link-active-colour;
+  }
+
+  // When focussed, the text colour needs to be darker to ensure that colour
+  // contrast is still acceptable
+  &:focus {
+    color: $govuk-focus-text-colour;
+  }
+
+  // alphagov/govuk_template includes a specific a:link:focus selector
+  // designed to make unvisited link  s a slightly darker blue when focussed, so
+  // we need to override the text colour for that combination of selectors so
+  // so that unvisited links styled as buttons do not end up with dark blue
+  // text when focussed.
+  @include govuk-compatibility(govuk_template) {
+    &:link:focus {
+      color: $govuk-focus-text-colour;
+    }
+  }
+}
+
+// details
+.govuk-details__summary {
+  color: $hounslow-link-colour;
+
+  &:hover {
+    color: $hounslow-link-hover-colour;
+  }
+}
+
+// panel
+.govuk-panel--confirmation {
+  background: $hounslow_pink;
+}
+
+
+
+// Miscellaneous overrides
+.app-related-items {
+  border-color: $hounslow_green;
+}
