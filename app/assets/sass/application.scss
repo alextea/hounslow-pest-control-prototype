@@ -8,6 +8,20 @@ $govuk-global-styles: true;
 // Override the default GOV.UK Frontend font stack
 $govuk-font-family: "Lato", sans-serif;
 
+// colours
+$hounslow_purple: #642f6c;
+$hounslow_pink: #d70787;
+$hounslow_orange: #ffa500;
+$hounslow_green: #e5f2eb;
+
+$govuk-focus-colour: $hounslow_orange;
+
+// links
+$govuk-link-colour: $hounslow_purple;
+$govuk-link-visited-colour: $hounslow_purple;
+$govuk-link-hover-colour: $hounslow_pink;
+$govuk-link-active-colour: $hounslow_pink;
+
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
 
@@ -25,13 +39,6 @@ $govuk-assets-path: '/govuk/assets/';
 @import "accepted-cards";
 @import "cvc";
 @import "expiry-date-separator";
-
-
-// colours
-$hounslow_purple: #642f6c;
-$hounslow_pink: #d70787;
-$hounslow_orange: #ffa500;
-$hounslow_green: #e5f2eb;
 
 // header
 .hounslow-header {
@@ -65,56 +72,6 @@ $button-shadow-size: $govuk-border-width-form-element;
 
   &:hover {
     background-color: $hounslow-button-hover-colour;
-  }
-}
-
-// links
-$hounslow-link-colour: $hounslow_purple;
-$hounslow-link-visited-colour: $hounslow_purple;
-$hounslow-link-hover-colour: $hounslow_pink;
-$hounslow-link-active-colour: $hounslow_pink;
-
-a {
-  &:link {
-    color: $hounslow-link-colour;
-  }
-
-  &:visited {
-    color: $hounslow-link-visited-colour;
-  }
-
-  &:hover {
-    color: $hounslow-link-hover-colour;
-  }
-
-  &:active {
-    color: $hounslow-link-active-colour;
-  }
-
-  // When focussed, the text colour needs to be darker to ensure that colour
-  // contrast is still acceptable
-  &:focus {
-    color: $govuk-focus-text-colour;
-  }
-
-  // alphagov/govuk_template includes a specific a:link:focus selector
-  // designed to make unvisited link  s a slightly darker blue when focussed, so
-  // we need to override the text colour for that combination of selectors so
-  // so that unvisited links styled as buttons do not end up with dark blue
-  // text when focussed.
-  @include govuk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $govuk-focus-text-colour;
-    }
-  }
-}
-
-// details
-.govuk-details__summary {
-  color: $hounslow-link-colour;
-
-  &:hover {
-    color: $hounslow-link-hover-colour;
   }
 }
 
