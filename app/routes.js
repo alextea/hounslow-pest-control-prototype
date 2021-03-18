@@ -47,6 +47,10 @@ router.post('/type-of-pest', function(req, res) {
 })
 
 router.get('/confirm-your-booking', function(req, res) {
+  if (req.session.data['type_of_pest'] == 'unknown' || req.session.data['type_of_pest'] == 'pigeon') {
+    res.redirect('/check-online-enquiry')
+  }
+
   let pest = pestData.find(pest => {
     return  pest['pest-type'] == req.session.data['type_of_pest']
   })

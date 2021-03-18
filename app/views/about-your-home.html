@@ -85,6 +85,22 @@
           }
         }) }}
 
+        {% if data['type_of_pest'] == 'unknown' %}
+
+        {{ govukTextarea({
+          name: "pest_description",
+          id: "pest_description",
+          label: {
+            text: "Can you provide more detail?",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Please describe where the pests are and what they look like."
+          }
+        }) }}
+
+        {% endif %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
