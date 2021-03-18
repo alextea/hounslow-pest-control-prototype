@@ -20,6 +20,10 @@
 
       <p>We have sent you a confirmation email with details of your appointment and will remind you 1 day before.</p>
 
+      {% if data['type_of_pest'] == 'bedbugs' %}
+      <p>You will need to <a href="/bedbug-preparation">prepare your home</a> before our officers arrive to treat the bedbugs. Please follow the instructions. You will be reminded the day before the appointment.</p>
+      {% endif %}
+
       <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
 
 
